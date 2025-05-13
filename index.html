@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Banker's Algorithm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Banker's Algorithm Simulation</h2>
+
+    <form id="configForm" class="mb-4">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="numProcesses" class="form-label">Number of Processes</label>
+          <input type="number" class="form-control" id="numProcesses" required>
+        </div>
+        <div class="col-md-6">
+          <label for="numResources" class="form-label">Number of Resources</label>
+          <input type="number" class="form-control" id="numResources" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Create Matrices</button>
+    </form>
+
+    <div id="matrixInputs" style="display: none;">
+      <h5>Allocation Matrix</h5>
+      <div id="allocationTable"></div>
+
+      <h5>Max Matrix</h5>
+      <div id="maxTable"></div>
+
+      <h5>Available Resources</h5>
+      <div id="availableResources"></div>
+
+      <button class="btn btn-success mt-3" onclick="calculateSafeSequence()">Calculate Safe Sequence</button>
+    </div>
+
+    <div id="result" class="mt-4 alert" style="display: none;"></div>
+  </div>
+<h5 class="mt-4">Resource Request</h5>
+<div class="row">
+  <!-- Left side: Inputs -->
+  <div class="col-md-7">
+    <div class="row g-3 align-items-center mb-3">
+      <div class="col-auto">
+        <label for="requestProcess" class="col-form-label">Requesting Process (P#)</label>
+      </div>
+      <div class="col-auto">
+        <input type="number" id="requestProcess" class="form-control" style="width: 80px;">
+      </div>
+    </div>
+
+    <div id="requestResources" class="row mb-3"></div>
+    <button class="btn btn-warning" onclick="handleResourceRequest()">Request Resources</button>
+  </div>
+
+  <!-- Right side: Result output -->
+  <div class="col-md-5">
+    <div id="requestResult" class="alert" style="display: none;"></div>
+  </div>
+  <script src="script.js"></script>
+  </div>
+</body>
+</html>
